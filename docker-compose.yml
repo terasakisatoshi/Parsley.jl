@@ -1,0 +1,27 @@
+version: '3'
+services:
+  julia:
+    image: parsleyjl
+    container_name: parsleyjl-julia
+    volumes:
+      - ./:/workspace/Parsley.jl
+    working_dir: /workspace/Parsley.jl
+    command: julia --project=/workspace/Parsley.jl
+
+  shell:
+    image: parsleyjl
+    container_name: parsleyjl-julia
+    volumes:
+      - ./:/workspace/Parsley.jl
+    working_dir: /workspace/Parsley.jl
+    command: /bin/bash
+
+  web:
+    image: parsleyjl
+    container_name: parsleyjl-packagedocs
+    volumes:
+      - ./:/workspace/Parsley.jl
+    working_dir: /workspace/Parsley.jl
+    ports:
+      - "8000:8000"
+    command: make web
