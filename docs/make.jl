@@ -19,6 +19,16 @@ makedocs(;
     ],
 )
 
+import Pkg;
+Pkg.activate("page/Project.toml")
+Pkg.instantiate();
+using NodeJS;
+run(`$(npm_cmd()) install highlight.js purgecss`)
+import PkgPage
+PkgPage.optimize(input="page", output="page")
+run(`mv page/__site/page docs/build/page`)
+Pkg.activate("docs/Project.toml")
+
 deploydocs(;
     repo="github.com/terasakisatoshi/Parsley.jl",
     devbranch="main",

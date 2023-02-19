@@ -43,16 +43,16 @@ jobs:
       - uses: julia-actions/setup-julia@v1
         with:
           version: "1"
-      - name: create our landing page
-        run: |
-          julia -e '
-            import Pkg; Pkg.activate("page/Project.toml"); Pkg.instantiate();
-            using NodeJS;
-            run(`$(npm_cmd()) install highlight.js purgecss`);
-            import PkgPage;
-            PkgPage.optimize(input="page", output="page")'
-          mkdir -p docs/build
-          mv page/__site/ docs/build/page
+      #- name: create our landing page
+      #  run: |
+      #    julia -e '
+      #      import Pkg; Pkg.activate("page/Project.toml"); Pkg.instantiate();
+      #      using NodeJS;
+      #      run(`$(npm_cmd()) install highlight.js purgecss`);
+      #      import PkgPage;
+      #      PkgPage.optimize(input="page", output="page")'
+      #    mkdir -p docs/build
+      #    mv page/__site/page docs/build/page
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-docdeploy@v1
         env:
