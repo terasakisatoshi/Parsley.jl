@@ -24,8 +24,6 @@ test: build
 clean:
 	docker-compose down
 	-find $(CURDIR) -name "*.ipynb" -type f -delete
-	-find $(CURDIR) -name "*.html" -type f -delete
-	-find $(CURDIR) -name "*.gif" -type f -delete
 	-find $(CURDIR) -name "*.ipynb_checkpoints" -type d -exec rm -rf "{}" +
 	-rm -f  Manifest.toml docs/Manifest.toml
 	-rm -rf docs/build
