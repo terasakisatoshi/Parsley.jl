@@ -289,34 +289,20 @@ To do so, in the Julia REPL, navigate to the source (e.g. `cd("page/")`), activa
 If you check the status or the Project.toml, you will see that `Franklin` is already in there on top of whatever packages you might have chosen to add.
 In our current case:
 
-```
-Status `~/.julia/dev/PkgPage/page/Project.toml`
-  [a93c6f00] DataFrames v0.21.2
-  [713c75ef] Franklin v0.8.2
+```julia-repl
+(page) pkg> st
+Status `~/work/Parsley.jl/page/Project.toml`
+  [a93c6f00] DataFrames v1.5.0
+  [713c75ef] Franklin v0.10.79
+  [2bd173c7] NodeJS v1.3.0
+  [e7214860] PkgPage v0.4.3
+  [ade2ca70] Dates
 ```
 
 Also add the package in the `DeployPage.yml` e.g. in our case there is:
 
 ```julia
-Pkg.add(["NodeJS", "DataFrames"]);
-```
-
-Once that's set up, you can use "named" code blocks i.e. code blocks that look like
-
-`````
-```julia:ex
-using DataFrames
-df = DataFrame(A = 1:4, B = ["M", "F", "F", "M"])
-first(df, 3)
-```
-`````
-
-where `:ex` is the "named part" (`ex` being the name, which should be unique on the page).
-
-```julia:ex
-using DataFrames
-df = DataFrame(A = 1:4, B = ["M", "F", "F", "M"])
-first(df, 3)
+Pkg.add(["NodeJS"]);
 ```
 
 You can control the indentation and appearance of the output block in the `config.md` too.
