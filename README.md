@@ -1,1 +1,3 @@
-# Parsley [![Build Status](https://github.com/terasakisatoshi/Parsley.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/terasakisatoshi/Parsley.jl/actions/workflows/CI.yml?query=branch%3Amain) [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://terasakisatoshi.github.io/Parsley.jl/stable/) [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://terasakisatoshi.github.io/Parsley.jl/dev/)
+# Parsley [![Build Status](https://github.com/terasakisatoshi/Parsley.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/terasakisatoshi/Parsley.jl/actions/workflows/CI.yml?query=branch%3Amain) [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://terasakisatoshi.github.io/Parsley.jl/dev/)
+
+[Our landing page](https://terasakisatoshi.github.io/Parsley.jl/dev/page)
