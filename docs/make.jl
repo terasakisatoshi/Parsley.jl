@@ -25,7 +25,7 @@ Pkg.instantiate()
 using NodeJS;
 run(`$(npm_cmd()) install highlight.js purgecss`);
 import PkgPage;
-prepath = (get(ENV, "CI", "false") == "true") ? "Parsley.jl/dev/page/" : "page"
+prepath = (get(ENV, "CI", "false") == "true") ? "Parsley.jl/dev/page" : "page"
 PkgPage.optimize(input="page", prepath=prepath);
 run(`mv page/__site docs/build/page`)
 Pkg.activate("docs/Project.toml")
