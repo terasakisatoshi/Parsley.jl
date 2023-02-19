@@ -1,7 +1,9 @@
 *.gif
 .DS_Store
-/Manifest.toml
+Manifest.toml
 /docs/build/
 docs/build/
 docs/site/
 page/__site
+node_modules
+package-lock.json

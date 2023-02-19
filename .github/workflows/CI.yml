@@ -48,7 +48,10 @@ jobs:
           using NodeJS;
           run(`$(npm_cmd()) install highlight.js purgecss`);
           import PkgPage;
-          PkgPage.optimize(input="page", output="page")'
+          PkgPage.optimize(input="page", output="web")'
+      - run: |
+          mkdir -p docs/assets/page
+          mv page/site/__site/ docs/assets/page
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-docdeploy@v1
         env:

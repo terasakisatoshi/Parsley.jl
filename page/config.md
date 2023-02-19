@@ -19,7 +19,7 @@ The latter allows you to plug in values that you would have defined here.
              deployed page to be in a subfolder e.g.: `YourPackage.jl/web/`.
 -->
 @def title       = "Parsely.jl"
-@def prepath     = "Parsely.jl/page"
+@def prepath     = "Parsely.jl"
 @def description = "カツサンドのお供にパセリはいかが？"
 @def authors     = "Satoshi Terasaki"
 
@@ -32,8 +32,8 @@ The latter allows you to plug in values that you would have defined here.
   - add_nav_logo:  whether to add a logo left of the package name
   - nav_logo_path: where the logo is
 -->
-@def add_docs  = false
-@def docs_url  = "https://franklinjl.org/"
+@def add_docs  = true
+@def docs_url  = "https://terasakisatoshi.github.io/Parsley.jl/dev/"
 @def docs_name = "Docs"
 
 @def add_nav_logo   = true
