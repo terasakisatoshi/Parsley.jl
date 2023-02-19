@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-    tags: ['*']
+    tags: ["*"]
   pull_request:
 concurrency:
   # Skip intermediate builds: always.
@@ -18,8 +18,8 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - '1.8'
-          - 'nightly'
+          - "1.8"
+          - "nightly"
         os:
           - ubuntu-latest
         arch:
@@ -42,7 +42,13 @@ jobs:
       - uses: actions/checkout@v2
       - uses: julia-actions/setup-julia@v1
         with:
-          version: '1'
+          version: "1"
+      - run: julia -e '
+          import Pkg; Pkg.activate("page/Project.toml"); Pkg.instantiate();
+          using NodeJS;
+          run(`$(npm_cmd()) install highlight.js purgecss`);
+          import PkgPage;
+          PkgPage.optimize(input="page", output="page")'
       - uses: julia-actions/julia-buildpkg@v1
       - uses: julia-actions/julia-docdeploy@v1
         env:
