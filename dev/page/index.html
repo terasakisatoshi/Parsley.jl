@@ -7,14 +7,14 @@
   <meta name="author" content="Satoshi Terasaki">
   <title>Parsely.jl</title>
 
-  <link rel="icon" type="image/png"  href="/page/assets/favicon.ico">
+  <link rel="icon" type="image/png"  href="/Parsley.jl/dev/page/assets/favicon.ico">
 
   <!-- CSS -->
-   <link rel="stylesheet" href="/page/libs/katex/katex.min.css">
+   <link rel="stylesheet" href="/Parsley.jl/dev/page/libs/katex/katex.min.css">
      
-   <link rel="stylesheet" href="/page/libs/highlight/styles/atom-one-dark.css">
+   <link rel="stylesheet" href="/Parsley.jl/dev/page/libs/highlight/styles/atom-one-dark.css">
    
-  <link rel="stylesheet" href="/page/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/Parsley.jl/dev/page/css/bootstrap.min.css">
   <style>.bg-primary {
   background-color: #3f6388 !important;
 }
@@ -58,7 +58,7 @@ pre code.hljs.plaintext {
   margin-left: 15px;
 }
 </style>
-  <link rel="stylesheet" href="/page/css/custom.css">
+  <link rel="stylesheet" href="/Parsley.jl/dev/page/css/custom.css">
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
@@ -67,7 +67,7 @@ pre code.hljs.plaintext {
   <div class="container">
     <span class="navbar-brand">
       
-        <img src="/page/assets/logo.svg" class="img-fluid" style="height:         25px;
+        <img src="/Parsley.jl/dev/page/assets/logo.svg" class="img-fluid" style="height:         25px;
 padding-right:  10px;
 " alt="Logo"/>
       
@@ -313,7 +313,7 @@ text
 </li>
 </ul>
  <div style="text-align:center;"> <figure class="figure">
-  <img src="/page/assets/nice_image.jpg" alt="Panoramic view of the Tara Cathedrals (taken from Wikimedia)." class="figure-img img-fluid " width="100%" style="border-radius:5px;">
+  <img src="/Parsley.jl/dev/page/assets/nice_image.jpg" alt="Panoramic view of the Tara Cathedrals (taken from Wikimedia)." class="figure-img img-fluid " width="100%" style="border-radius:5px;">
   <figcaption class="figure-caption ">
 Panoramic view of the Tara Cathedrals (taken from Wikimedia).
 </figcaption>
@@ -386,47 +386,15 @@ this is an alert</div>
         <h2>Showing Code</h2></p>
 <div class="lead">Franklin can run your Julia code on the fly and show the output.</div>
 <p><strong>Setting up the environment</strong>: the first step is to ensure that the folder with your source has the proper environment including your package. To do so, in the Julia REPL, navigate to the source &#40;e.g. <code>cd&#40;&quot;page/&quot;&#41;</code>&#41;, activate the environment &#40;e.g. <code>using Pkg; Pkg.activate&#40;&#41;</code>&#41; and add the package&#40;s&#41; that you need &#40;e.g. <code>Pkg.add&#40;&quot;DataFrames&quot;&#41;</code>&#41;. If you check the status or the Project.toml, you will see that <code>Franklin</code> is already in there on top of whatever packages you might have chosen to add. In our current case:</p>
-<pre><code class="julia hljs">Status <span class="hljs-string">`~/.julia/dev/PkgPage/page/Project.toml`</span>
-  [a93c6f00] DataFrames v0<span class="hljs-number">.21</span><span class="hljs-number">.2</span>
-  [<span class="hljs-number">713</span>c75ef] Franklin v0<span class="hljs-number">.8</span><span class="hljs-number">.2</span></code></pre>
+<pre><code class="julia-repl hljs"><span class=hljs-metap>(page) pkg&gt;</span> st
+Status `~/work/Parsley.jl/page/Project.toml`
+  [a93c6f00] DataFrames v1.5.0
+  [713c75ef] Franklin v0.10.79
+  [2bd173c7] NodeJS v1.3.0
+  [e7214860] PkgPage v0.4.3
+  [ade2ca70] Dates</code></pre>
 <p>Also add the package in the <code>DeployPage.yml</code> e.g. in our case there is:</p>
-<pre><code class="julia hljs">Pkg.add([<span class="hljs-string">&quot;NodeJS&quot;</span>, <span class="hljs-string">&quot;DataFrames&quot;</span>]);</code></pre>
-<p>Once that&#39;s set up, you can use &quot;named&quot; code blocks i.e. code blocks that look like</p>
-<pre><code class="julia hljs"><span class="hljs-string">``</span><span class="hljs-string">`julia:ex
-using DataFrames
-df = DataFrame(A = 1:4, B = [&quot;M&quot;, &quot;F&quot;, &quot;F&quot;, &quot;M&quot;])
-first(df, 3)
-`</span><span class="hljs-string">``</span></code></pre>
-<p>where <code>:ex</code> is the &quot;named part&quot; &#40;<code>ex</code> being the name, which should be unique on the page&#41;.</p>
-<pre><code class="julia hljs"><span class="hljs-keyword">using</span> DataFrames
-df = DataFrame(A = <span class="hljs-number">1</span>:<span class="hljs-number">4</span>, B = [<span class="hljs-string">&quot;M&quot;</span>, <span class="hljs-string">&quot;F&quot;</span>, <span class="hljs-string">&quot;F&quot;</span>, <span class="hljs-string">&quot;M&quot;</span>])
-first(df, <span class="hljs-number">3</span>)</code></pre><pre><code class="plaintext hljs">::debug file=page/loading.jl,line=1664::Precompiling DataFrames [a93c6f00-e57d-5684-b7b6-d8193f3e46c0]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/Reexport/bTpYr_nfSNG.ji for Reexport [189a3867-3050-52da-a836-e630ba90ab69]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/Compat/GSFWK_nfSNG.ji for Compat [34da2185-b29b-5c13-b0c7-acf172513d20]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/DataStructures/xKiwJ_nfSNG.ji for DataStructures [864edb3b-99cc-5e75-8d2d-829cb0a9cfe8]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/SortingAlgorithms/6dCmw_nfSNG.ji for SortingAlgorithms [a2af1166-a08f-5f64-846c-94a0d3cef48c]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/DataAPI/3a8mN_nfSNG.ji for DataAPI [9a962f9c-6df0-11e9-0e5d-c546b8b5ee8a]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/PooledArrays/vi11X_nfSNG.ji for PooledArrays [2dfb63ee-cc39-5dd5-95bd-886bf059d720]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/Missings/wLfgT_nfSNG.ji for Missings [e1d29d7a-bbdc-5cf2-9ac0-f12de2c33e28]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/InvertedIndices/0P8C6_nfSNG.ji for InvertedIndices [41ab1584-1d38-5bbf-9106-f11c6c58b48f]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/IteratorInterfaceExtensions/N0h8q_nfSNG.ji for IteratorInterfaceExtensions [82899510-4779-5014-852e-03e436cf321d]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/TableTraits/I6SaN_nfSNG.ji for TableTraits [3783bdb8-4a98-5b6b-af9a-565f29a5fe9c]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/Formatting/vCa4N_nfSNG.ji for Formatting [59287772-0a20-5a39-b81b-1366585eb4c0]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/DataValueInterfaces/9Lpkp_nfSNG.ji for DataValueInterfaces [e2d170a0-9d28-54be-80f0-106bbe20a464]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/Tables/Z804B_nfSNG.ji for Tables [bd369af6-aec1-5ad0-b16a-f7cc5008161c]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/StringManipulation/4nJQd_nfSNG.ji for StringManipulation [892a3eda-7b42-436c-8928-eab12a02cf0e]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/LaTeXStrings/H4HGh_nfSNG.ji for LaTeXStrings [b964fa9f-0449-5b57-a5c2-d3ea65f4040f]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/PrettyTables/kRdcL_nfSNG.ji for PrettyTables [08abe8d2-0d0c-5749-adfa-8a2ac140af0d]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/SentinelArrays/uMYVe_nfSNG.ji for SentinelArrays [91c51154-3ec4-41a3-a24f-3f23e20d615c]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/InlineStrings/prmY3_nfSNG.ji for InlineStrings [842dd82b-1e85-43dc-bf29-5d0ee9dffc48]
-::debug file=page/loading.jl,line=806::Loading cache file /home/runner/.julia/compiled/v1.8/DataFrames/AR9oZ_nfSNG.ji for DataFrames [a93c6f00-e57d-5684-b7b6-d8193f3e46c0]
-3×2 DataFrame
- Row │ A      B
-     │ Int64  String
-─────┼───────────────
-   1 │     1  M
-   2 │     2  F
-   3 │     3  F</code></pre>
+<pre><code class="julia hljs">Pkg.add([<span class="hljs-string">&quot;NodeJS&quot;</span>]);</code></pre>
 <p>You can control the indentation and appearance of the output block in the <code>config.md</code> too.</p>
 <p>      </div>
     </div>
@@ -508,7 +476,7 @@ run(<span class="hljs-string">`<span class="hljs-subst">$(npm_cmd()</span>) inst
 
 
   
-  <script src="/page/libs/simple-scrollspy.min.js"></script>
+  <script src="/Parsley.jl/dev/page/libs/simple-scrollspy.min.js"></script>
   <script>
   window.onload = function () {
     scrollSpy('#navbarResponsive', {
